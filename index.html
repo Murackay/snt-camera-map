@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Схема видеонаблюдения СНТ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Статус бар -->
+        <div class="status-bar" id="status">
+            Готов к работе. Выберите тип точки или линии.
+        </div>
+        
+        <!-- Панель информации -->
+        <div class="info-panel">
+            <div class="info-header">
+                <div class="info-title">Информация</div>
+            </div>
+            
+            <div class="info-content" id="infoContent">
+                <!-- Иконки -->
+                <div class="info-section">
+                    <div class="section-subtitle">Иконки оборудования</div>
+                    <ul class="icon-list" id="iconList"></ul>
+                </div>
+                
+                <!-- Линии -->
+                <div class="info-section">
+                    <div class="section-subtitle">Типы линий</div>
+                    <ul class="line-list">
+                        <li class="line-item">
+                            <div class="line-preview line-black"></div>
+                            <span>Витая пара</span>
+                        </li>
+                        <li class="line-item">
+                            <div class="line-preview line-red"></div>
+                            <span>Оптический кабель</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Управление линиями -->
+                <div class="info-section">
+                    <div class="section-subtitle">Управление линиями</div>
+                    <div class="btn-group-vertical">
+                        <button class="btn btn-line-optical" onclick="lines.startLine('optical_line')">Начать оптику</button>
+                        <button class="btn btn-line-ethernet" onclick="lines.startLine('ethernet_line')">Начать витую пару</button>
+                        <button class="btn" onclick="lines.finishLine()">Завершить линию</button>
+                        <button class="btn" onclick="lines.cancelLine()">Отмена линии</button>
+                    </div>
+                </div>
+                
+                <!-- Управление точками -->
+                <div class="info-section">
+                    <div class="section-subtitle">Управление точками</div>
+                    <div class="btn-group-vertical" id="pointManagement">
+                        <button class="btn btn-rename" onclick="points.renameSelectedPoint()">Переименовать выбранную точку</button>
+                        <button class="btn btn-delete" onclick="points.deleteSelectedPoint()">Удалить выбранную точку</button>
+                    </div>
+                </div>
+                
+                <!-- Управление проектом -->
+                <div class="info-section">
+                    <div class="section-subtitle">Управление проектом</div>
+                    <div class="btn-group-vertical">
+                        <button class="btn" onclick="saveModule.saveProject()">Сохранить проект как HTML</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карта -->
+        <div id="map"></div>
+        
+        <!-- Нижняя панель -->
+        <div class="bottom-panel">
+            <!-- Панель управления -->
+            <div class="control-panel">
+                <!-- Точки -->
+                <div class="control-section">
+                    <div class="section-title">Добавление точек</div>
+                    <div class="btn-group">
+                        <button class="btn" onclick="app.addPoint('camera')">Камера</button>
+                        <button class="btn" onclick="app.addPoint('box')">POE коробка</button>
+                        <button class="btn" onclick="app.addPoint('optical')">Опт. коробка</button>
+                        <button class="btn" onclick="app.addPoint('pole')">Столб</button>
+                        <button class="btn" onclick="app.addPoint('pole_with_camera')">POE коробка с камерой</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Панель статистики -->
+            <div class="stats-panel">
+                <div class="section-subtitle">Статистика</div>
+                <div class="stats-list" id="statsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=bd850cad-cfa8-44ac-a2a9-5063ade5154c"></script>
+    <script src="js/icons-svg.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/lines.js"></script>
+    <script src="js/camera-directions.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

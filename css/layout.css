@@ -1,0 +1,81 @@
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    height: 100vh;
+}
+
+.bottom-panel {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        height: auto;
+        min-height: 100vh;
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .bottom-panel {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-group {
+        justify-content: center;
+    }
+    
+    /* Улучшаем отображение на мобильных */
+    .info-panel {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+    
+    .control-panel, .stats-panel {
+        padding: 8px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    /* Улучшаем карту для мобильных */
+    #map {
+        min-height: 400px;
+    }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+    .container {
+        grid-template-rows: auto auto 1fr auto;
+    }
+    
+    .info-panel {
+        max-height: 150px;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn {
+        margin-bottom: 5px;
+    }
+    
+    .status-bar {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}

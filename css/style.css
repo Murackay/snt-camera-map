@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Статус бар */
+.status-bar {
+    grid-column: 1 / -1;
+    background: #e3f2fd;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #1976d2;
+}
+
+/* Кнопки */
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #e9ecef;
+    color: #495057;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: #dee2e6;
+}
+
+.btn.active {
+    background: #007bff;
+    color: white;
+}
+
+.btn-line-optical {
+    background: #ffebee;
+    color: #d32f2f;
+}
+
+.btn-line-ethernet {
+    background: #f5f5f5;
+    color: #424242;
+}
+
+.btn-small {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.btn-rename {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
